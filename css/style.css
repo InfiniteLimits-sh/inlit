@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    /*  新增：Logo和导航链接垂直居中 */
+    padding: 12px 50px;     /* 改小上下内边距，从20px改为12px，减少间隙 */
+    background: black;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #999;
+}
+
+/* ===== Hero 轮播背景 ===== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+    position: relative;          /* 让子元素可以绝对定位 */
+    overflow: hidden;            /* 防止图片溢出 */
+    background: #111;            /* 图片加载前的背景色 */
+}
+
+/* 轮播图片容器 - 铺满整个hero */
+.hero-slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;                  /* 放在文字下方 */
+}
+
+/* 每张幻灯片 */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;                  /* 默认隐藏 */
+    transition: opacity 1.5s ease-in-out;  /* 渐变切换效果 */
+}
+
+/* 当前显示的图片 */
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* 图片上方的暗色遮罩，让文字更清晰 */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);  /* 半透明黑色，可调整透明度 */
+    z-index: 1;
+}
+
+/* 文字内容 - 浮在图片上方 */
+.hero-content {
+    position: relative;
+    z-index: 2;                  /* 在遮罩之上 */
+    color: white;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+    .hero {
+        padding-left: 5%;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.section {
+    padding: 80px 10%;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 100px;
+    background: #222;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    background: #333;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 20px;
+    background: #222;
+    color: white;
+    border: none;
+    text-align: left;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    background: #1a1a1a;
+}
+
+.lighting-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.lighting-item img {
+    width: 100%;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logo img {
+    max-height: 40px;      /* 限制最大高度 */
+    width: auto;           /* 宽度自适应 */
+    display: block;        /* 去除图片底部间隙 */
+    vertical-align: middle; /* 新增：额外保险 */
+}
