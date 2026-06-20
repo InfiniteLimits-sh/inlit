@@ -1,72 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InfiniteLimits 引力工作室</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfiniteLimits 引力工作室</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!--
+    如果近期没有演出，可以把 body 改成：
+    <body class="hide-upcoming">
+    这样首页的 Upcoming Shows 会整栏隐藏。
+  -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="InfiniteLimits 首页">
+      <img src="images/logo.png" alt="InfiniteLimits" class="brand-logo">
+      <span class="brand-text">InfiniteLimits</span>
+    </a>
 
-<nav>
-    <div class="logo">
-        <a href="/">
-            <img src="images/logo.png" alt="InfiniteLimits">
-        </a>
-    </div>
-    <div>
-        <a href="#about">About</a>
-        <a href="tour.html">Tours</a>
-        <a href="lighting.html">Lighting</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#upcoming">Shows</a>
+      <a href="projects.html">Projects</a>
+      <a href="technology.html">Tech</a>
+      <a href="#artists">Artists</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<!-- ===== Hero 轮播区域 ===== -->
-<header class="hero">
-    <!-- 轮播图片 -->
-    <div class="hero-slides">
-        <!-- 把下面 src 换成你的横板演出照片路径 -->
+  <main>
+    <section class="hero section-reveal">
+      <div class="hero-slides" aria-hidden="true">
+        <!-- 把下面图片替换成你的横版现场图，建议尺寸 1920x1080 或更宽。 -->
         <div class="hero-slide active" style="background-image: url('images/hero-1.jpg');"></div>
         <div class="hero-slide" style="background-image: url('images/hero-2.jpg');"></div>
         <div class="hero-slide" style="background-image: url('images/hero-3.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('images/hero-4.jpg');"></div>
-    </div>
-
-    <!-- 暗色遮罩 -->
-    <div class="hero-overlay"></div>
-
-    <!-- 文字内容（只在这里出现一次） -->
-    <div class="hero-content">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Tour Agency / Lighting / Sound</p>
         <h1>InfiniteLimits</h1>
-        <h2>引力工作室</h2>
-        <p>International Tour Agency & Lighting Design</p>
-    </div>
-</header>
+        <p class="hero-subtitle">引力工作室 · 海外乐队中国巡演代理与现场技术制作</p>
+      </div>
+    </section>
 
-<section id="about" class="section fade-in">
-    <h2>About Us</h2>
-    <p>
-        InfiniteLimits 引力工作室专注于海外乐队中国巡演代理、
-        演出项目策划执行以及舞台灯光设计。
-    </p>
-</section>
+    <section id="upcoming" class="upcoming-section section-reveal" data-upcoming-section>
+      <div class="section-heading">
+        <p class="eyebrow">Upcoming Shows</p>
+        <h2>近期演出</h2>
+      </div>
 
-<section class="section fade-in">
-    <h2>Projects</h2>
-    <div class="cards">
-        <a href="tour.html" class="card">Tour Projects</a>
-        <a href="lighting.html" class="card">Lighting Projects</a>
-    </div>
-</section>
+      <a class="show-banner" href="https://example.com/show-detail" target="_blank" rel="noopener">
+        <!-- 替换为你的演出横版 banner，例如 images/upcoming-show-01.jpg -->
+        <img src="images/upcoming-show-01.jpg" alt="近期演出海报">
+        <span class="show-banner-text">
+          <strong>Band Name China Tour 2026</strong>
+          <small>点击查看推文 / 详情链接</small>
+        </span>
+      </a>
+    </section>
 
-<section id="contact" class="section fade-in">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>Wechat: InfiniteLimits</p>
-    <p>Instagram: @InfiniteLimits</p>
-</section>
+    <section class="review-gate section-reveal" aria-label="项目和技术入口">
+      <a class="image-gate" href="projects.html">
+        <!-- 替换为你拼好的项目横版预览图，例如 images/project-review-banner.jpg -->
+        <img src="images/project-review-banner.jpg" alt="项目回顾预览">
+        <span>
+          <strong>项目回顾</strong>
+          <small>Project Reviews</small>
+        </span>
+      </a>
 
-<script src="js/main.js"></script>
+      <a class="image-gate" href="technology.html">
+        <!-- 替换为你拼好的技术横版预览图，例如 images/tech-review-banner.jpg -->
+        <img src="images/tech-review-banner.jpg" alt="技术回顾预览">
+        <span>
+          <strong>技术回顾</strong>
+          <small>Technical Reviews</small>
+        </span>
+      </a>
+    </section>
+
+    <section id="artists" class="artists-section section-reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Artists</p>
+        <h2>合作艺人</h2>
+      </div>
+
+      <div class="artist-carousel" data-carousel>
+        <button class="carousel-btn prev" type="button" aria-label="向左滑动" data-carousel-prev>‹</button>
+        <div class="artist-track" data-carousel-track>
+          <a class="artist-card" href="https://example.com/artist-01" target="_blank" rel="noopener">
+            <img src="images/artist-01.jpg" alt="Artist Name 01">
+            <span>Artist Name 01</span>
+          </a>
+          <a class="artist-card" href="https://example.com/artist-02" target="_blank" rel="noopener">
+            <img src="images/artist-02.jpg" alt="Artist Name 02">
+            <span>Artist Name 02</span>
+          </a>
+          <a class="artist-card" href="https://example.com/artist-03" target="_blank" rel="noopener">
+            <img src="images/artist-03.jpg" alt="Artist Name 03">
+            <span>Artist Name 03</span>
+          </a>
+          <a class="artist-card" href="https://example.com/artist-04" target="_blank" rel="noopener">
+            <img src="images/artist-04.jpg" alt="Artist Name 04">
+            <span>Artist Name 04</span>
+          </a>
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="向右滑动" data-carousel-next>›</button>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Contact</p>
+        <h2>联系我们</h2>
+      </div>
+
+      <div class="contact-grid">
+        <!--
+          data-qr 填二维码图片。
+          目前 href 都写成 #，所以点击会弹出二维码。
+          如果之后某个平台可以直接跳转，把 href 改成真实链接即可。
+        -->
+        <a class="contact-item" href="#" data-qr="images/qr-instagram.jpg">
+          <span>Instagram</span>
+          <small>@InfiniteLimits</small>
+        </a>
+        <a class="contact-item" href="#" data-qr="images/qr-xiaohongshu.jpg">
+          <span>小红书</span>
+          <small>点击查看二维码</small>
+        </a>
+        <a class="contact-item" href="#" data-qr="images/qr-wechat-public.jpg">
+          <span>微信公众号</span>
+          <small>点击查看二维码</small>
+        </a>
+        <a class="contact-item" href="#" data-qr="images/qr-wechat-official.jpg">
+          <span>微信官号</span>
+          <small>点击查看二维码</small>
+        </a>
+        <a class="contact-item" href="#" data-qr="images/qr-shop.jpg">
+          <span>微店</span>
+          <small>点击查看二维码</small>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div class="qr-modal" data-qr-modal hidden>
+    <button class="qr-close" type="button" aria-label="关闭二维码" data-qr-close>×</button>
+    <img src="" alt="二维码" data-qr-image>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
