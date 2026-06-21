@@ -1058,6 +1058,219 @@ h3 {
   font-size: 13px;
 }
 
+/* ===== 海报展示区域 ===== */
+.poster-section {
+  padding: clamp(48px, 7vw, 84px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 20px;
+}
+
+.poster-slider-wrapper {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 海报滑动容器 */
+.poster-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.poster-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 2px 8px;
+}
+
+.poster-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* 每张海报卡片 */
+.poster-card {
+  flex: 0 0 calc(25% - 12px);    /* 4 张一排，减去 gap 间距 */
+  min-width: 200px;
+  scroll-snap-align: start;
+  aspect-ratio: 2 / 3;            /* 竖版海报比例 */
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  background: #0a0a0a;
+  border: 1px solid var(--line);
+  transition: transform 300ms ease, border-color 300ms ease;
+  cursor: pointer;
+}
+
+.poster-card:hover {
+  transform: scale(1.03);
+  border-color: var(--line-strong);
+}
+
+.poster-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+}
+
+.poster-card:hover img {
+  transform: scale(1.05);
+}
+
+/* 悬停遮罩 - 浮现文字 */
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 350ms ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 20px;
+  text-align: center;
+}
+
+.poster-card:hover .poster-overlay {
+  opacity: 1;
+}
+
+/* 浮现文字样式 */
+.poster-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateY(12px);
+  transition: transform 350ms ease;
+}
+
+.poster-card:hover .poster-info {
+  transform: translateY(0);
+}
+
+.poster-info strong {
+  color: #fff;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.poster-info span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(11px, 1vw, 14px);
+  letter-spacing: 0.04em;
+}
+
+.poster-info small {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: clamp(10px, 0.8vw, 12px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* 左右滑动按钮 */
+.poster-slider-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 250ms ease, color 250ms ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-slider-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.poster-slider-btn.prev {
+  left: 6px;
+}
+
+.poster-slider-btn.next {
+  right: 6px;
+}
+
+/* 滚动指示器 */
+.poster-scroll-hint {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 300ms ease, transform 300ms ease;
+}
+
+.hint-dot.active {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.3);
+}
+
+/* 移动端适配：2 张一排 */
+@media (max-width: 860px) {
+  .poster-card {
+    flex: 0 0 calc(50% - 8px);
+    aspect-ratio: 2 / 3;
+  }
+
+  .poster-track {
+    gap: 12px;
+  }
+
+  .poster-slider-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .poster-info strong {
+    font-size: 16px;
+  }
+}
+
+/* 小屏手机：1 张一排 */
+@media (max-width: 480px) {
+  .poster-card {
+    flex: 0 0 calc(80% - 8px);
+    aspect-ratio: 2 / 3;
+  }
+
+  .poster-track {
+    gap: 10px;
+  }
+}
+
 /* ===== 移动端 ===== */
 @media (max-width: 860px) {
   .project-card {

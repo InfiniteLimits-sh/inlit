@@ -127,3 +127,35 @@ document.querySelectorAll('.photo-slider').forEach(slider => {
     });
   }
 });
+
+// ===== 海报滑动 =====
+document.querySelectorAll('.poster-slider').forEach(slider => {
+  const track = slider.querySelector('.poster-track');
+  const prevBtn = slider.querySelector('.poster-slider-btn.prev');
+  const nextBtn = slider.querySelector('.poster-slider-btn.next');
+  const dots = slider.closest('.poster-slider-wrapper').querySelectorAll('.hint-dot');
+
+  if (track && prevBtn && nextBtn) {
+    // 点击左右按钮滑动
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = track.querySelector('.poster-card')?.offsetWidth || 260;
+      track.scrollBy({ left: -(cardWidth + 16), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = track.querySelector('.poster-card')?.offsetWidth || 260;
+      track.scrollBy({ left: cardWidth + 16, behavior: 'smooth' });
+    });
+
+    // 滑动时更新指示点
+    track.addEventListener('scroll', () => {
+      const scrollLeft = track.scrollLeft;
+      const cardWidth = track.querySelector('.poster-card')?.offsetWidth || 260;
+      const gap = 16;
+      const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+  }
+});
