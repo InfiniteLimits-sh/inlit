@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfiniteLimits 引力工作室</title>
+  <title>InfiniteLimits</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--
-    如果近期没有演出，可以把 body 改成：
-    <body class="hide-upcoming">
-    这样首页的 Upcoming Shows 会整栏隐藏。
-  -->
+  <!-- No upcoming shows? Change body to: <body class="hide-upcoming"> -->
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="InfiniteLimits 首页">
+    <a class="brand" href="index.html" aria-label="InfiniteLimits home">
       <img src="images/logo.png" alt="InfiniteLimits" class="brand-logo">
       <span class="brand-text">InfiniteLimits</span>
     </a>
 
-    <nav class="main-nav" aria-label="主导航">
+    <nav class="main-nav" aria-label="Main navigation">
       <a href="#upcoming">Shows</a>
       <a href="projects.html">Projects</a>
       <a href="technology.html">Tech</a>
@@ -30,124 +26,185 @@
   <main>
     <section class="hero section-reveal">
       <div class="hero-slides" aria-hidden="true">
-        <!-- 把下面图片替换成你的横版现场图，建议尺寸 1920x1080 或更宽。 -->
+        <!-- Replace with wide live photos: images/hero-1.jpg, hero-2.jpg, hero-3.jpg -->
         <div class="hero-slide active" style="background-image: url('images/hero-1.jpg');"></div>
         <div class="hero-slide" style="background-image: url('images/hero-2.jpg');"></div>
         <div class="hero-slide" style="background-image: url('images/hero-3.jpg');"></div>
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="eyebrow">Tour Agency / Lighting / Sound</p>
+        <p class="eyebrow">引力工作室</p>
         <h1>InfiniteLimits</h1>
-        <p class="hero-subtitle">引力工作室 · 海外乐队中国巡演代理与现场技术制作</p>
+        <p class="hero-subtitle">Partnership opportunities in China’s live music market: international tours, technical production, merchandise and live show execution.</p>
+      </div>
+    </section>
+
+    <section class="about-section section-reveal">
+      <div class="section-heading">
+        <p class="eyebrow">关于我们</p>
+        <h2>About InfiniteLimits</h2>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-copy">
+          <p>Established in 2020, InfiniteLimits works across China’s live music ecosystem, supporting international artist tours, music-related merchandise partnerships and diverse live events in venues, festivals, arenas and art installations.</p>
+          <p>Since our inception, we have participated in over 500 live events, including 65 performances by international artists and nearly 20 exclusive artist showcases.</p>
+        </div>
+        <div class="stat-grid" aria-label="Company highlights">
+          <div class="stat-item">
+            <strong>500+</strong>
+            <span>Live Events</span>
+          </div>
+          <div class="stat-item">
+            <strong>65</strong>
+            <span>International Shows</span>
+          </div>
+          <div class="stat-item">
+            <strong>20</strong>
+            <span>Artist Showcases</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-strip">
+        <span>Tour Promotion</span>
+        <span>Merchandise</span>
+        <span>Stage Rental</span>
+        <span>Lighting & Sound</span>
+        <span>Photo & Video</span>
+        <span>VJ Support</span>
       </div>
     </section>
 
     <section id="upcoming" class="upcoming-section section-reveal" data-upcoming-section>
       <div class="section-heading">
-        <p class="eyebrow">Upcoming Shows</p>
-        <h2>近期演出</h2>
+        <p class="eyebrow">近期演出</p>
+        <h2>Upcoming Shows</h2>
       </div>
 
       <a class="show-banner" href="https://example.com/show-detail" target="_blank" rel="noopener">
-        <!-- 替换为你的演出横版 banner，例如 images/upcoming-show-01.jpg -->
-        <img src="images/upcoming-show-01.jpg" alt="近期演出海报">
+        <!-- Replace with your show banner: images/upcoming-show-01.jpg -->
+        <img src="images/upcoming-show-01.jpg" alt="Upcoming show banner">
         <span class="show-banner-text">
           <strong>Band Name China Tour 2026</strong>
-          <small>点击查看推文 / 详情链接</small>
+          <small>点击查看推文 / show details</small>
         </span>
       </a>
     </section>
 
-    <section class="review-gate section-reveal" aria-label="项目和技术入口">
+    <section id="project-tech" class="review-gate section-reveal" aria-label="Project and technology entries">
       <a class="image-gate" href="projects.html">
-        <!-- 替换为你拼好的项目横版预览图，例如 images/project-review-banner.jpg -->
-        <img src="images/project-review-banner.jpg" alt="项目回顾预览">
+        <!-- Replace with your stitched wide project preview image. -->
+        <img src="images/project-review-banner.jpg" alt="Project review preview">
         <span>
-          <strong>项目回顾</strong>
-          <small>Project Reviews</small>
+          <strong>Project Reviews</strong>
+          <small>点击查看项目回顾</small>
         </span>
       </a>
 
       <a class="image-gate" href="technology.html">
-        <!-- 替换为你拼好的技术横版预览图，例如 images/tech-review-banner.jpg -->
-        <img src="images/tech-review-banner.jpg" alt="技术回顾预览">
+        <!-- Replace with your stitched wide technical preview image. -->
+        <img src="images/tech-review-banner.jpg" alt="Technical review preview">
         <span>
-          <strong>技术回顾</strong>
-          <small>Technical Reviews</small>
+          <strong>Technical Reviews</strong>
+          <small>点击查看技术回顾</small>
         </span>
       </a>
     </section>
 
     <section id="artists" class="artists-section section-reveal">
       <div class="section-heading">
-        <p class="eyebrow">Artists</p>
-        <h2>合作艺人</h2>
+        <p class="eyebrow">合作艺人</p>
+        <h2>Artists</h2>
       </div>
 
       <div class="artist-carousel" data-carousel>
-        <button class="carousel-btn prev" type="button" aria-label="向左滑动" data-carousel-prev>‹</button>
+        <button class="carousel-btn prev" type="button" aria-label="Previous artists" data-carousel-prev>‹</button>
         <div class="artist-track" data-carousel-track>
-          <a class="artist-card" href="https://example.com/artist-01" target="_blank" rel="noopener">
-            <img src="images/artist-01.jpg" alt="Artist Name 01">
-            <span>Artist Name 01</span>
+          <!-- The number in each href matches the project id in projects.html. -->
+          <a class="artist-card" href="projects.html#project-01">
+            <img src="images/artist-01.jpg" alt="Peremotka">
+            <span>Peremotka</span>
           </a>
-          <a class="artist-card" href="https://example.com/artist-02" target="_blank" rel="noopener">
-            <img src="images/artist-02.jpg" alt="Artist Name 02">
-            <span>Artist Name 02</span>
+          <a class="artist-card" href="projects.html#project-02">
+            <img src="images/artist-02.jpg" alt="Sleep Dealer">
+            <span>Sleep Dealer</span>
           </a>
-          <a class="artist-card" href="https://example.com/artist-03" target="_blank" rel="noopener">
-            <img src="images/artist-03.jpg" alt="Artist Name 03">
-            <span>Artist Name 03</span>
+          <a class="artist-card" href="projects.html#project-03">
+            <img src="images/artist-03.jpg" alt="City of the Lost">
+            <span>City of the Lost</span>
           </a>
-          <a class="artist-card" href="https://example.com/artist-04" target="_blank" rel="noopener">
-            <img src="images/artist-04.jpg" alt="Artist Name 04">
-            <span>Artist Name 04</span>
+          <a class="artist-card" href="projects.html#project-04">
+            <img src="images/artist-04.jpg" alt="KWOON">
+            <span>KWOON</span>
           </a>
         </div>
-        <button class="carousel-btn next" type="button" aria-label="向右滑动" data-carousel-next>›</button>
+        <button class="carousel-btn next" type="button" aria-label="Next artists" data-carousel-next>›</button>
       </div>
     </section>
 
     <section id="contact" class="contact-section section-reveal">
       <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>联系我们</h2>
+        <p class="eyebrow">联系方式</p>
+        <h2>Contact</h2>
       </div>
 
       <div class="contact-grid">
-        <!--
-          data-qr 填二维码图片。
-          目前 href 都写成 #，所以点击会弹出二维码。
-          如果之后某个平台可以直接跳转，把 href 改成真实链接即可。
-        -->
-        <a class="contact-item" href="#" data-qr="images/qr-instagram.jpg">
+        <!-- Put your icon images in images/contact-*.png. Click opens the QR image in data-qr. -->
+        <a class="contact-item" href="#" data-qr="images/qr-instagram.jpg" aria-label="Instagram QR code">
+          <img src="images/contact-instagram.png" alt="">
           <span>Instagram</span>
-          <small>@InfiniteLimits</small>
         </a>
-        <a class="contact-item" href="#" data-qr="images/qr-xiaohongshu.jpg">
-          <span>小红书</span>
-          <small>点击查看二维码</small>
+        <a class="contact-item" href="#" data-qr="images/qr-xiaohongshu.jpg" aria-label="Xiaohongshu QR code">
+          <img src="images/contact-xiaohongshu.png" alt="">
+          <span>Rednote</span>
         </a>
-        <a class="contact-item" href="#" data-qr="images/qr-wechat-public.jpg">
-          <span>微信公众号</span>
-          <small>点击查看二维码</small>
+        <a class="contact-item" href="#" data-qr="images/qr-wechat-public.jpg" aria-label="WeChat official account QR code">
+          <img src="images/contact-wechat-public.png" alt="">
+          <span>WeChat OA</span>
         </a>
-        <a class="contact-item" href="#" data-qr="images/qr-wechat-official.jpg">
-          <span>微信官号</span>
-          <small>点击查看二维码</small>
+        <a class="contact-item" href="#" data-qr="images/qr-wechat-official.jpg" aria-label="WeChat contact QR code">
+          <img src="images/contact-wechat.png" alt="">
+          <span>WeChat</span>
         </a>
-        <a class="contact-item" href="#" data-qr="images/qr-shop.jpg">
-          <span>微店</span>
-          <small>点击查看二维码</small>
+        <a class="contact-item" href="#" data-qr="images/qr-shop.jpg" aria-label="Shop QR code">
+          <img src="images/contact-shop.png" alt="">
+          <span>Shop</span>
         </a>
+        <!-- Change the email address below to your real contact email. -->
+        <a class="contact-item" href="mailto:hello@infinitelimits.live" aria-label="Email InfiniteLimits">
+          <img src="images/contact-email.png" alt="">
+          <span>Email</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="market-section section-reveal">
+      <div class="section-heading">
+        <p class="eyebrow">市场与合作</p>
+        <h2>China Live Music Market</h2>
+      </div>
+
+      <div class="market-grid">
+        <article>
+          <strong>469.562B RMB</strong>
+          <p>China’s music market revenue exceeded 469.562 billion yuan in 2023, with year-on-year growth of 10.75%.</p>
+        </article>
+        <article>
+          <strong>18-35</strong>
+          <p>Core live music audiences are young, experience-driven and willing to pay for high-quality international music events.</p>
+        </article>
+        <article>
+          <strong>Multi-city</strong>
+          <p>We cover tier-1 markets including Beijing, Shanghai and Guangzhou, while expanding into Hangzhou, Chengdu, Tianjin and Xi’an.</p>
+        </article>
       </div>
     </section>
   </main>
 
   <div class="qr-modal" data-qr-modal hidden>
-    <button class="qr-close" type="button" aria-label="关闭二维码" data-qr-close>×</button>
-    <img src="" alt="二维码" data-qr-image>
+    <button class="qr-close" type="button" aria-label="Close QR code" data-qr-close>×</button>
+    <img src="" alt="QR code" data-qr-image>
   </div>
 
   <script src="js/main.js"></script>

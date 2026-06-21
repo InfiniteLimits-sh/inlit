@@ -1,4 +1,5 @@
-// 首页演出栏开关：没有近期演出时改成 false，会自动隐藏 Upcoming Shows。
+// Hide Upcoming Shows when there is no active show.
+// 改成 false 后，首页 Upcoming Shows 会自动隐藏。
 const siteConfig = {
   showUpcoming: true
 };
@@ -22,7 +23,7 @@ function setupUpcomingSection() {
 function setupImageFallbacks() {
   document.querySelectorAll("img").forEach((image) => {
     image.addEventListener("error", () => {
-      // 图片还没放进 images 文件夹时，先隐藏破图图标，让灰黑底色保持干净。
+      // Keep empty image slots clean before you add real files.
       image.classList.add("image-missing");
     });
   });
@@ -52,7 +53,7 @@ function setupRevealOnScroll() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.16 });
+  }, { threshold: 0.12 });
 
   revealItems.forEach((item) => observer.observe(item));
 }
@@ -83,36 +84,30 @@ function setupQrModal() {
 
   if (!modal || !image || !close) return;
 
+  const closeModal = () => {
+    modal.hidden = true;
+    image.removeAttribute("src");
+  };
+
   qrLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
-      const qrPath = link.dataset.qr;
-      const directUrl = link.getAttribute("href");
-
-      // 如果链接是 # 或空链接，就只弹二维码；如果有真实链接，新窗口照常打开。
-      if (!directUrl || directUrl === "#") {
-        event.preventDefault();
-        image.src = qrPath;
-        modal.hidden = false;
-      }
+      event.preventDefault();
+      image.src = link.dataset.qr;
+      modal.hidden = false;
     });
   });
 
-  close.addEventListener("click", () => {
-    modal.hidden = true;
-    image.src = "";
-  });
+  close.addEventListener("click", closeModal);
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
-      modal.hidden = true;
-      image.src = "";
+      closeModal();
     }
   });
 
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !modal.hidden) {
-      modal.hidden = true;
-      image.src = "";
+      closeModal();
     }
   });
 }
