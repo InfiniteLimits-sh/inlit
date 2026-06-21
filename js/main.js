@@ -111,3 +111,19 @@ function setupQrModal() {
     }
   });
 }
+// ===== 照片滑动 =====
+document.querySelectorAll('.photo-slider').forEach(slider => {
+  const track = slider.querySelector('.slider-track');
+  const prevBtn = slider.querySelector('.slider-btn.prev');
+  const nextBtn = slider.querySelector('.slider-btn.next');
+
+  if (prevBtn && nextBtn && track) {
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -track.offsetWidth, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: track.offsetWidth, behavior: 'smooth' });
+    });
+  }
+});
