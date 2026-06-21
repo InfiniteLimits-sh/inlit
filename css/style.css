@@ -826,14 +826,40 @@ h3 {
   text-decoration: none;
 }
 
+/* ===== 页面标题 ===== */
 .page-hero {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
-  padding: clamp(48px, 9vw, 112px) 0 clamp(36px, 7vw, 74px);
+  padding: clamp(40px, 7vw, 80px) 0 clamp(30px, 5vw, 50px);
+}
+
+.page-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-hero-sub {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: clamp(12px, 1vw, 14px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .page-hero h1 {
-  font-size: clamp(44px, 8vw, 92px);
+  margin-bottom: 0;
+  font-size: clamp(40px, 7vw, 80px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+
+.page-hero-desc {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.5;
+  margin: 4px 0 0;
+  max-width: 600px;
 }
 
 .project-list {
