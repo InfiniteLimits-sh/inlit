@@ -6,8 +6,8 @@
   <title>InfiniteLimits</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <!-- No upcoming shows? Change body to: <body class="hide-upcoming"> -->
+<body class="hide-upcoming">
+  <!-- No upcoming shows? Change body to: <body class="hide-upcoming">, 有show的时候只保留body即可 -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="InfiniteLimits home">
       <img src="images/logo.png" alt="InfiniteLimits" class="brand-logo">
@@ -15,7 +15,7 @@
     </a>
 
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#upcoming">Shows</a>
+      <!--有show的时候删除注释保留中间内容 a href="#upcoming">Shows</a-->
       <a href="projects.html">Projects</a>
       <a href="technology.html">Tech</a>
       <a href="#artists">Artists</a>
@@ -123,20 +123,20 @@
         <div class="artist-track" data-carousel-track>
           <!-- The number in each href matches the project id in projects.html. -->
           <a class="artist-card" href="projects.html#project-01">
-            <img src="images/artist-01.jpg" alt="Peremotka">
-            <span>Peremotka</span>
+            <img src="images/artist-01.jpg" alt="KWOON">
+            <span>KWOON</span>
           </a>
           <a class="artist-card" href="projects.html#project-02">
-            <img src="images/artist-02.jpg" alt="Sleep Dealer">
-            <span>Sleep Dealer</span>
-          </a>
-          <a class="artist-card" href="projects.html#project-03">
-            <img src="images/artist-03.jpg" alt="City of the Lost">
+            <img src="images/artist-02.jpg" alt="City of the Lost">
             <span>City of the Lost</span>
           </a>
+          <a class="artist-card" href="projects.html#project-03">
+            <img src="images/artist-03.jpg" alt="UTBBYS">
+            <span>UTBBYS</span>
+          </a>
           <a class="artist-card" href="projects.html#project-04">
-            <img src="images/artist-04.jpg" alt="KWOON">
-            <span>KWOON</span>
+            <img src="images/artist-04.jpg" alt="Sleep Dealer">
+            <span>Sleep Dealer</span>
           </a>
         </div>
         <button class="carousel-btn next" type="button" aria-label="Next artists" data-carousel-next>›</button>
@@ -151,7 +151,7 @@
 
       <div class="contact-grid">
         <!-- Put your icon images in images/contact-*.png. Click opens the QR image in data-qr. -->
-        <a class="contact-item" href="#" data-qr="images/qr-instagram.jpg" aria-label="Instagram QR code">
+        <a class="contact-item" href="https://www.instagram.com/infinite_limits_crew/" target="_blank" rel="noopener noreferrer" aria-label="Instagram QR code">
           <img src="images/contact-instagram.png" alt="">
           <span>Instagram</span>
         </a>
@@ -172,7 +172,7 @@
           <span>Shop</span>
         </a>
         <!-- Change the email address below to your real contact email. -->
-        <a class="contact-item" href="mailto:hello@infinitelimits.live" aria-label="Email InfiniteLimits">
+        <a class="contact-item" href="mailto:inlicrew@gmail.com" aria-label="Email InfiniteLimits">
           <img src="images/contact-email.png" alt="">
           <span>Email</span>
         </a>
@@ -188,7 +188,7 @@
       <div class="market-grid">
         <article>
           <strong>469.562B RMB</strong>
-          <p>China’s music market revenue exceeded 469.562 billion yuan in 2023, with year-on-year growth of 10.75%.</p>
+          <p>China’s music market revenue exceeded 469.562 billion yuan in 2025, with year-on-year growth of 10.75%.</p>
         </article>
         <article>
           <strong>18-35</strong>
