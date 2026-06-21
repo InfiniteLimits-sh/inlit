@@ -224,11 +224,94 @@ h3 {
   margin: 0 auto 20px;
 }
 
+/* 所有 section 的通用 padding */
 .upcoming-section,
 .about-section,
 .artists-section,
-.contact-section,
-.market-section,
+.contact-section {
+  padding: clamp(48px, 7vw, 84px) 0;
+}
+
+/* Market 区域单独定义（带背景图） */
+.market-section {
+  padding: clamp(48px, 7vw, 84px) 0;
+  background-image: url('../images/market-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  color: #fff;
+}
+
+/* 半透明遮罩（参考 About 设计） */
+.market-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.market-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Market 网格 - 改为 3 列卡片，磨砂玻璃效果 */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* 卡片样式 - 磨砂玻璃效果（和 About 统计卡片一致） */
+.market-grid article {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 36px);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+}
+
+.market-grid article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.market-grid strong {
+  display: block;
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.market-grid p {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 移动端适配 */
+@media (max-width: 860px) {
+  .market-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 .tech-section {
   padding: clamp(48px, 7vw, 84px) 0;
 }
@@ -546,7 +629,7 @@ h3 {
   margin: 0 auto;
 }
 
-.market-grid article,
+/* .market-grid article,
 .case-panel {
   border: 1px solid var(--line);
   background: var(--panel);
@@ -559,7 +642,7 @@ h3 {
   color: #fff;
   font-size: clamp(24px, 3vw, 38px);
   line-height: 1.05;
-}
+}*/
 
 .case-panel {
   width: min(1120px, calc(100% - 40px));
