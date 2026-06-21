@@ -233,6 +233,34 @@ h3 {
   padding: clamp(48px, 7vw, 84px) 0;
 }
 
+.about-section {
+  background-image: url('../images/about-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  color: #fff;
+}
+
+/* 半透明遮罩，让文字更清晰 */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* 让内容在遮罩之上 */
+.about-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
@@ -258,8 +286,19 @@ h3 {
   align-content: end;
   min-height: 132px;
   padding: 16px;
-  border: 1px solid var(--line);
-  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;                      /* 圆角 */
+  background: rgba(255, 255, 255, 0.08);    /* 半透明磨砂 */
+  backdrop-filter: blur(12px);              /* 磨砂模糊效果 */
+  -webkit-backdrop-filter: blur(12px);      /* Safari 兼容 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 柔和阴影 */
+  transition: background 260ms ease, border-color 260ms ease, transform 260ms ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .stat-item strong {
@@ -284,10 +323,20 @@ h3 {
 
 .service-strip span {
   padding: 8px 12px;
-  border: 1px solid var(--line);
-  color: rgba(255, 255, 255, 0.72);
-  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;                      /* 大圆角（药丸形状） */
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.07);    /* 半透明 */
+  backdrop-filter: blur(8px);               /* 轻微磨砂 */
+  -webkit-backdrop-filter: blur(8px);
   font-size: 13px;
+  transition: background 260ms ease, border-color 260ms ease, transform 260ms ease;
+}
+
+.service-strip span:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 .show-banner {
