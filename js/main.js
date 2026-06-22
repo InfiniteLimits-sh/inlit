@@ -159,3 +159,67 @@ document.querySelectorAll('.poster-slider').forEach(slider => {
     });
   }
 });
+// ===== 原有的 JS 代码（保留） =====
+// Hero 轮播
+// Section reveal 滚动动画
+// Artist 走马灯
+// QR 弹窗
+// 等等...
+
+// ===== And More 横向滑动 =====
+document.querySelectorAll('.andmore-carousel-wrapper').forEach(wrapper => {
+  const track = wrapper.querySelector('.andmore-track');
+  const slides = track ? track.querySelectorAll('.andmore-slide') : [];
+  const dotsContainer = wrapper.querySelector('.andmore-dots');
+  const prevBtn = wrapper.querySelector('.andmore-btn.prev');
+  const nextBtn = wrapper.querySelector('.andmore-btn.next');
+  let currentIndex = 0;
+
+  if (slides.length < 2) return;
+
+  // 创建指示点
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.classList.toggle('active', index === 0);
+    dot.addEventListener('click', () => goTo(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('span');
+
+  function goTo(index) {
+    const slideWidth = slides[0].offsetWidth + 12;
+    const scrollPosition = index * slideWidth;
+    track.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    currentIndex = index;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const prev = Math.max(0, currentIndex - 1);
+      goTo(prev);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const next = Math.min(slides.length - 1, currentIndex + 1);
+      goTo(next);
+    });
+  }
+
+  track.addEventListener('scroll', () => {
+    const slideWidth = slides[0].offsetWidth + 12;
+    const scrollLeft = track.scrollLeft;
+    const index = Math.round(scrollLeft / slideWidth);
+    if (index !== currentIndex && index < slides.length) {
+      currentIndex = index;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+  });
+});
