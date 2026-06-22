@@ -1566,7 +1566,7 @@ h3 {
 }
 
 .tech-stats-section {
-  padding: clamp(40px, 5vw, 60px) 0;
+  padding: clamp(10px, 2vw, 24px) 0 clamp(40px, 5vw, 60px) 0;
 }
 
 .tech-stats-grid {
