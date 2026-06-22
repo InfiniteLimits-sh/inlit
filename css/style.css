@@ -1501,7 +1501,7 @@ h3 {
   flex-wrap: wrap;
   gap: 8px;
   width: min(1120px, calc(100% - 40px));
-  margin: 16px auto 0;
+  margin: 16px auto 20px;
 }
 
 .tech-services span {
