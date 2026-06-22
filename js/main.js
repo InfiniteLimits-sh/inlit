@@ -223,3 +223,61 @@ document.querySelectorAll('.andmore-carousel-wrapper').forEach(wrapper => {
     }
   });
 });
+
+// ===== Tech Gallery 滑动 =====
+document.querySelectorAll('.tech-gallery').forEach(gallery => {
+  const track = gallery.querySelector('.tech-gallery-track');
+  const items = track ? track.querySelectorAll('.tech-gallery-item') : [];
+  const dotsContainer = gallery.closest('.tech-gallery-wrapper').querySelector('.gallery-dots');
+  const prevBtn = gallery.querySelector('.gallery-btn.prev');
+  const nextBtn = gallery.querySelector('.gallery-btn.next');
+  let currentIndex = 0;
+
+  if (items.length < 2) return;
+
+  // 创建指示点（按实际图片数量）
+  items.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.classList.toggle('active', index === 0);
+    dot.addEventListener('click', () => goTo(index));
+    if (dotsContainer) dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('span') : [];
+
+  function goTo(index) {
+    const itemWidth = items[0].offsetWidth + 4;  // 图片宽度 + gap
+    const scrollPosition = index * itemWidth;
+    track.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    currentIndex = index;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const prev = Math.max(0, currentIndex - 1);
+      goTo(prev);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const next = Math.min(items.length - 1, currentIndex + 1);
+      goTo(next);
+    });
+  }
+
+  track.addEventListener('scroll', () => {
+    const itemWidth = items[0].offsetWidth + 4;
+    const scrollLeft = track.scrollLeft;
+    const index = Math.round(scrollLeft / itemWidth);
+    if (index !== currentIndex && index < items.length) {
+      currentIndex = index;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+  });
+});

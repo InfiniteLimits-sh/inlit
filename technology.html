@@ -14,7 +14,6 @@
       <span class="brand-text">InfiniteLimits</span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
-      <!--a href="index.html#upcoming">Shows</a-->
       <a href="index.html#project-tech">Projects</a>
       <a href="index.html#project-tech">Tech</a>
       <a href="index.html#artists">Artists</a>
@@ -27,15 +26,27 @@
       <a class="back-link" href="index.html">← Back to Home / 返回首页</a>
     </div>
 
-    <section class="page-hero tech-hero section-reveal">
-      <div>
-        <p class="eyebrow">技术制作</p>
+    <!-- ===== 页面标题 ===== -->
+    <section class="page-hero section-reveal">
+      <div class="page-hero-content">
+        <p class="page-hero-sub">技术制作</p>
         <h1>Technical Production</h1>
-        <p>Lighting design, live sound, stage equipment rental, VJ support, photography, videography and technical coordination for tours and one-off productions across China.</p>
+        <p class="page-hero-desc">我们为每位合作的艺术家配备专业的灯光及音响团队，<br>提供从设备支持到现场执行的全方位技术服务。</p>
       </div>
-      <img src="images/tech-console-main.jpg" alt="Technical crew at console">
+
+      <!-- 磨砂小方框：技术服务列举 -->
+      <div class="tech-services">
+        <span>Lighting Design</span>
+        <span>Sound Engineering</span>
+        <span>Stage Equipment</span>
+        <span>VJ Support</span>
+        <span>Photography</span>
+        <span>Videography</span>
+        <span>Technical Coordination</span>
+      </div>
     </section>
 
+    <!-- ===== 合作技术人员 ===== -->
     <section class="tech-section section-reveal">
       <div class="section-heading">
         <p class="eyebrow">合作技术人员</p>
@@ -43,50 +54,103 @@
       </div>
 
       <div class="crew-grid">
-        <article class="crew-card">
-          <img src="images/crew-lighting.jpg" alt="Lighting designer">
-          <h3>Lighting Design</h3>
-          <p>Creative visual systems for clubs, festivals, arenas and art installations, including laser, disco ball, VJ and lighting effects tailored to each artist’s songs.</p>
-        </article>
-        <article class="crew-card">
-          <img src="images/crew-sound.jpg" alt="Sound engineer">
-          <h3>Sound Engineering</h3>
-          <p>Touring sound support with stable system tuning, clear vocal presence and detailed band dynamics, coordinated with artists before each show.</p>
-        </article>
+<div class="crew-grid">
+  <article class="crew-card">
+    <div class="crew-image">
+      <img src="images/crew-lighting.jpg" alt="Lighting designer">
+    </div>
+    <div class="crew-content">
+      <h3>Lighting Design</h3>
+      <p>我们提供从业多年的灯光师，在演出前与乐队确认舞台灯光效果，并跟随乐队完成巡演。负责与场地沟通，确保试音当天一切有条不紊地进行，免去乐队对设备不了解、沟通困难造成的麻烦。</p>
+    </div>
+  </article>
+
+  <article class="crew-card">
+    <div class="crew-image">
+      <img src="images/crew-sound.jpg" alt="Sound engineer">
+    </div>
+    <div class="crew-content">
+      <h3>Sound Engineering</h3>
+      <p>我们提供从业多年的调音师，在演出前与乐队确认舞台音响效果，并跟随乐队完成巡演。负责与场地沟通，确保试音当天一切有条不紊地进行，免去乐队对设备不了解、沟通困难造成的麻烦。</p>
+    </div>
+  </article>
+</div>
       </div>
     </section>
 
-    <section class="tech-section section-reveal">
+    <!-- ===== 技术协作案例 ===== -->
+    <section class="tech-stats-section section-reveal">
       <div class="section-heading">
         <p class="eyebrow">技术协作案例</p>
-        <h2>Honne 2024 China Tour</h2>
+        <h2>Technical Collaborations</h2>
       </div>
 
-      <div class="case-panel">
-        <p>InfiniteLimits provided lighting equipment and technical coordination support for Honne’s 2024 China Tour. The completed event was promoted by SplitWorks.</p>
+      <div class="tech-stats-grid">
+        <div class="tech-stat-card">
+          <strong>50+</strong>
+          <span>Shows</span>
+        </div>
+        <div class="tech-stat-card">
+          <strong>12</strong>
+          <span>Music Festivals</span>
+        </div>
+        <div class="tech-stat-card">
+          <strong>10+</strong>
+          <span>Years Experience</span>
+        </div>
+      </div>
+
+      <!-- 小字解释 + 小方块标签 -->
+      <div class="tech-stats-detail">
+        <p>InfiniteLimits 为每场演出提供专业的灯光、音响及技术支持，累计服务超过 50 场演出、12 个音乐节，团队拥有 10 年以上行业经验。</p>
         <div class="flat-info">
           <span>Lighting Equipment</span>
+          <span>Sound Engineering</span>
           <span>Technical Coordination</span>
           <span>Tour Support</span>
-          <span>Promoter: SplitWorks</span>
         </div>
       </div>
     </section>
 
-    <section class="tech-section section-reveal">
+    <!-- ===== 现场照片集（滑动） ===== -->
+    <section class="tech-gallery-section section-reveal">
       <div class="section-heading">
-        <p class="eyebrow">合作项目</p>
-        <h2>Selected Works</h2>
+        <p class="eyebrow">现场记录</p>
+        <h2>Live Gallery</h2>
       </div>
 
-      <div class="work-strip">
-        <span>Honne 2024 China Tour</span>
-        <span>Peremotka China Tour</span>
-        <span>KWOON China Tour</span>
-        <span>Band Name China Tour</span>
-        <span>Festival Stage Lighting</span>
-        <span>Club Show FOH</span>
-        <span>Showcase Production</span>
+      <div class="tech-gallery-wrapper">
+        <div class="tech-gallery" data-tech-gallery>
+          <button class="gallery-btn prev" type="button" data-gallery-prev>‹</button>
+          <div class="tech-gallery-track" data-gallery-track>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-01.jpg" alt="Live production 01">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-02.jpg" alt="Live production 02">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-03.jpg" alt="Live production 03">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-04.jpg" alt="Live production 04">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-05.jpg" alt="Live production 05">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-06.jpg" alt="Live production 06">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-07.jpg" alt="Live production 07">
+            </div>
+            <div class="tech-gallery-item">
+              <img src="images/tech-gallery-08.jpg" alt="Live production 08">
+            </div>
+          </div>
+          <button class="gallery-btn next" type="button" data-gallery-next>›</button>
+        </div>
+        <div class="gallery-dots" data-gallery-dots></div>
       </div>
     </section>
   </main>
