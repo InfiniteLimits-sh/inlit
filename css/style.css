@@ -182,7 +182,7 @@ img.image-missing {
 .eyebrow {
   margin: 0 0 10px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -196,7 +196,7 @@ p {
 
 h1 {
   margin-bottom: 12px;
-  font-size: clamp(46px, 8vw, 104px);
+  font-size: clamp(42px, 7vw, 80px);
   line-height: 0.96;
   letter-spacing: 0;
 }
@@ -216,7 +216,7 @@ h3 {
 .page-hero p {
   max-width: 700px;
   color: rgba(255, 255, 255, 0.76);
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 1.4vw, 18px);
 }
 
 .section-heading {
@@ -372,7 +372,7 @@ h3 {
   display: block;
   margin-bottom: 12px;
   color: #fff;
-  font-size: clamp(28px, 3.5vw, 44px);
+  font-size: clamp(22px, 2.5vw, 32px);
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
@@ -450,7 +450,8 @@ h3 {
 
 .stat-item {
   display: grid;
-  align-content: end;
+  align-content: center;
+  justify-items: center;  
   min-height: 132px;
   padding: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -470,14 +471,14 @@ h3 {
 
 .stat-item strong {
   color: #fff;
-  font-size: clamp(30px, 4vw, 48px);
+  font-size: clamp(24px, 3vw, 36px);
   line-height: 1;
 }
 
 .stat-item span {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .service-strip {
