@@ -281,3 +281,4 @@ document.querySelectorAll('.tech-gallery').forEach(gallery => {
     }
   });
 });
+

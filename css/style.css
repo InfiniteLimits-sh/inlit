@@ -497,7 +497,15 @@ h3 {
 }
 
 .show-banner img,
-.image-gate img,
+.image-gate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);                    /* ✅ 背景模糊 */
+  transform: scale(1.05);               /* ✅ 放大消除边缘白边 */
+  transition: filter 400ms ease;
+}
+
 .artist-card img,
 .project-cover img,
 .crew-card img,
@@ -815,11 +823,12 @@ h3 {
 }
 
 .page-hero-desc {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: clamp(13px, 1.2vw, 16px);
-  line-height: 1.5;
-  margin: 4px 0 0;
-  max-width: 600px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: clamp(12px, 1vw, 14px);
+    font-weight: 300; 
+  line-height: 1.8;
+  margin: 8px 0 0;
+  max-width: 620px;
 }
 
 .project-list {
@@ -1014,9 +1023,9 @@ h3 {
 }
 
 .andmore-section {
-  padding: clamp(20px, 3vw, 40px) 0;
+  padding: clamp(10px, 2vw, 20px) 0 clamp(20px, 3vw, 40px) 0;  /* ✅ 上内边距改小 */
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin-top: 10px;
+  margin-top: 0;                                                /* ✅ 去掉上外边距 */
 }
 
 .andmore-header {
@@ -1062,7 +1071,7 @@ h3 {
 }
 
 .andmore-slide {
-  flex: 0 0 calc(33.333% - 8px);
+  flex: 0 0 calc(40% - 8px);
   min-width: 180px;
   scroll-snap-align: start;
   aspect-ratio: 4 / 3;
@@ -1165,9 +1174,9 @@ h3 {
 }
 
 .poster-section {
-  padding: clamp(48px, 7vw, 84px) 0;
+  padding: clamp(10px, 2vw, 20px) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .poster-slider-wrapper {
@@ -1598,7 +1607,7 @@ h3 {
 .tech-stats-grid .tech-stat-card strong {
   display: block;
   color: #fff;
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(24px, 3vw, 36px);
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
@@ -1657,7 +1666,7 @@ h3 {
 }
 
 .tech-gallery-item {
-  flex: 0 0 calc(25% - 3px);
+  flex: 0 0 calc(40% - 3px);
   min-width: 160px;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -1853,27 +1862,24 @@ h3 {
 
 /* 滑动容器 - 隐藏滚动条但可滑动 */
 .scroll-wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;  /* Firefox 细滚动条 */
-  padding-bottom: 0.5rem;
+  width: 100%;
 }
 
-/* 对 Chrome/Safari 隐藏滚动条（可选） */
 .scroll-wrapper::-webkit-scrollbar {
-  height: 4px;
+  display: none;              /* Chrome/Safari */
 }
 .scroll-wrapper::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
 }
 
 /* 内部项目容器 */
 .scroll-items {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;   /* 允许换行 */
   gap: 0.8rem;
-  white-space: nowrap;
 }
 
 /* 每个小方块 - 字大一点 */
@@ -1896,4 +1902,34 @@ h3 {
 .badge:hover {
   background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Technology 页面 - 左右布局 ===== */
+.tech-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;           /* 左右各占一半 */
+  gap: 40px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  align-items: center;                      /* 垂直居中 */
+}
+
+.tech-hero-text {
+  max-width: 580px;
+}
+
+.tech-hero-text .page-hero-desc {
+  margin: 0;                                /* 去掉多余边距 */
+}
+
+/* 移动端适配：变成上下排列 */
+@media (max-width: 860px) {
+  .tech-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tech-hero-text {
+    max-width: 100%;
+  }
 }
